@@ -13,7 +13,7 @@ class RenaultKwid {
 	method peso() = if (tanqueAdicional) 1350 else 1200
 }
 
-object Trafic {
+object trafic {
 	var property interior
 	var property motor
 	method capacidad() = interior.capacidad()

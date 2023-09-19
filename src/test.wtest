@@ -1,0 +1,30 @@
+import autos.*
+import dependencias.*
+describe "test de dependencias" {
+	const  deportes = new Dependencia(cantidadEmpleado=45)
+	const  cultura = new Dependencia(cantidadEmpleado=31)
+	
+	method initialize() {
+		const cachito = new ChevroletCorsa(color="rojo")
+		deportes.agregarAFlota(cachito)
+		deportes.agregarAFlota(new ChevroletCorsa(color="azul"))
+		deportes.agregarAFlota(new ChevroletCorsa(color="verde"))
+		deportes.agregarAFlota(new RenaultKwid(tanqueAdicional=true))
+		deportes.agregarAFlota(new AutoEspecial(capacidad=5,velocidad=160,peso=1200,color="beige"))
+		cultura.agregarAFlota(cachito)
+		cultura.agregarAFlota(new RenaultKwid(tanqueAdicional=true))
+		cultura.agregarAFlota(new RenaultKwid(tanqueAdicional=true))
+		cultura.agregarAFlota(new RenaultKwid(tanqueAdicional=false))
+		trafic.configurar(interiorPopular, motorBataton)
+		cultura.agregarAFlota(trafic)
+	}
+
+	test "peso total de la flota de cultura" {
+		assert.equals(1300+1350*2+1200+4000+1500,cultura.pesoTotalFlota())
+	}
+	
+	test "peso total de la flota de deporte" {
+		assert.equals(1300*3+1350+1200,deportes.pesoTotalFlota())
+	}
+
+}
